@@ -1,0 +1,36 @@
+<h3 class="text-center">Modifier un exercice</h3>
+<div style="width: 400px; margin: auto;">
+  <form (ngSubmit)="onSubmit()">
+   
+        <input type="hidden" class="form-control" id="id" required [(ngModel)]="exercice.id" name="id">
+      
+        <div class="form-group">
+            <label for="name">Titre</label>
+            <input type="text" class="form-control" id="titre" required [(ngModel)]="exercice.titre" name="titre">
+          </div>
+      
+          <div class="form-group">
+            <label for="name">Description</label>
+            <input type="text" class="form-control" id="descriptif" required [(ngModel)]="exercice.descriptif" name="descriptif">
+          </div>
+          <div class="form-group">
+              <label for="name">Année</label>
+              <input type="text" class="form-control" id="annee" required [(ngModel)]="exercice.annee" name="annee">
+            </div>
+            <div class="form-group">
+              <label for="name">Date début</label>
+              <input type="text" class="form-control" id="datedebut" required [(ngModel)]="exercice.datedebut" name="datedebut">
+            </div>
+           
+            <div class="form-group">
+              <label for="name">Date fin</label>
+              <input type="text" class="form-control" id="datefin" required [(ngModel)]="exercice.datefin" name="datefin">
+            </div>
+            <div class="form-group">
+              <label for="name">Status</label>
+              <input type="text" class="form-control" id="status" required [(ngModel)]="exercice.status" name="status">
+            </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+    <a routerLink="/exercices" class="float-right"><button class="btn btn-info text-white">Exercices List</button></a>
+  </form>
+</div>

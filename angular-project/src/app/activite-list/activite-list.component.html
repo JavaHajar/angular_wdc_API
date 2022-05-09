@@ -1,0 +1,33 @@
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Descriptif</th>
+                    <th scope="col">date début</th>
+                    <th scope="col">date fin</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">responsable</th>
+                    <th scope="col">Actions</th>
+                    <!-- <th scope="col">activites</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let activite of activites | async">
+                    <th >{{ activite.id}}</th>
+                    <td >{{ activite.titre}}</td> 
+                    <td >{{ activite.descriptif }}</td> 
+                    <td >{{ activite.datedebut }}</td>
+                    <td >{{ activite.datefin }}</td>
+                    <td >{{ activite.status }}</td>
+                    <td >{{ activite.responsables.nom }}</td>
+                    <td><button (click)="updateActivite(activite.id)" type="submit" class="btn btn-warning mr-2">Editer</button>
+                     <button (click)="deleteActivite(activite.id)" type="submit" class="btn btn-danger" style="margin-left: 10px">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div> 
+

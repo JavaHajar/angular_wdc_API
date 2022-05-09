@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <a routerLink="exercices" class="nav-link" routerLinkActive="active">Exercices List</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="activites" class="nav-link" routerLinkActive="active">activites List</a>
+    </li>
+      <li class="nav-item">
+          <a routerLink="add-exercice" class="nav-link" routerLinkActive="active">Add Exercice</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="add-activite" class="nav-link" routerLinkActive="active">Add Activité</a>
+    </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <br>
+    <h2 style="text-align: center;">Bienvenue Admin</h2>
+    <hr>  
+    <div class="card">
+      <div class="card-body">
+    <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="mt-4">
+    </div>
+  </footer>
+
+

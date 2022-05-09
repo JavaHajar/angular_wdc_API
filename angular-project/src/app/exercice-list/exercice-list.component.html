@@ -1,0 +1,30 @@
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Descriptif</th>
+                    <th scope="col">Année</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                    <!-- <th scope="col">activites</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let exercice of exercices | async">
+                    <th >{{ exercice.id}}</th>
+                    <td >{{ exercice.titre}}</td> 
+                    <td >{{ exercice.descriptif }}</td> 
+                    <td >{{ exercice.annee }}</td>
+                    <td >{{ exercice.status }}</td>
+                    
+                    <td><button (click)="updateExercice(exercice.id)" type="submit" class="btn btn-warning mr-2">Editer</button>
+                     <button (click)="deleteExercice(exercice.id)" type="submit" class="btn btn-danger" style="margin-left: 10px">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div> 
+
