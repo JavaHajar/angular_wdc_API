@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActiviteService } from '../activite.service';
+import { Activite } from "../activite";
+import { Observable } from "rxjs";
+import { Router } from '@angular/router';
+import { Responsable } from "../activite";
 
 @Component({
   selector: 'app-create-activite',
@@ -7,25 +12,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateActiviteComponent implements OnInit {
 
-  exercice: Exercice = new Exercice();
+  activite: Activite = new Activite();
+  responsables!:Observable<Responsable>;
   submitted = false;
 
-  constructor(private exerciceService: ExerciceService,
+  constructor(private activiteService: ActiviteService,
     private router: Router) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.reloadData();
+    }
+  
+    reloadData() {
+      this.responsables = this.activiteService.getResponsableList();
+    }
 
-  newExercice(): void {
+  newActivite(): void {
     this.submitted = false;
-    this.exercice = new Exercice();
+    this.activite = new Activite();
   }
 
-  saveExercice() {
-    this.exerciceService
-    .createExercice(this.exercice).subscribe(data => {
+  saveActivite() {
+    this.activiteService
+    .createActivite(this.activite).subscribe(data => {
       console.log(data)
-      this.exercice = new Exercice();
+      this.activite = new Activite();
       this.gotoList();
     }, 
     error => console.log(error));
@@ -33,10 +44,10 @@ export class CreateActiviteComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.saveExercice();    
+    this.saveActivite();    
   }
 
   gotoList() {
-    this.router.navigate(['/exercices']);
+    this.router.navigate(['/activites']);
   }
 }

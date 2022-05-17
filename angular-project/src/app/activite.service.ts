@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Activite } from './activite';
@@ -33,7 +33,13 @@ export class ActiviteService {
   }
 
   getActiviteList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/activites`)
+    return this.http.get(`${this.baseUrl}/activites`,
+    {headers: new HttpHeaders({'Authorization': 'Bearer '+ localStorage.getItem('userToken')})})
+    // .map(response:Response) => response.json())
+    //  .do(response => console.log('response = ', response))
+  }
+  getResponsableList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/responsables`)
     // .map(response:Response) => response.json())
     //  .do(response => console.log('response = ', response))
   }

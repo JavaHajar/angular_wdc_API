@@ -6,9 +6,12 @@ import { UpdateExerciceComponent } from './update-exercice/update-exercice.compo
 
 import { ActiviteListComponent } from './activite-list/activite-list.component';
 import { CreateActiviteComponent } from './create-activite/create-activite.component';
+import { LoginComponent } from './user/login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'exercice', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'exercices', component: ExerciceListComponent },
   { path: 'add-exercice', component: CreateExerciceComponent },
   { path: 'update-exercice/:id', component: UpdateExerciceComponent },
@@ -16,6 +19,10 @@ const routes: Routes = [
 
   { path: 'activites', component: ActiviteListComponent },
   { path: 'add-activite', component: CreateActiviteComponent },
+  
+  { path: 'login', component: LoginComponent },
+  {path: 'logout', component: LoginComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

@@ -3,31 +3,31 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Titre</label>
-      <input type="text" class="form-control" id="titre" required [(ngModel)]="exercice.titre" name="titre">
+      <input type="text" class="form-control" id="titre" required [(ngModel)]="activite.titre" name="titre">
     </div>
 
     <div class="form-group">
       <label for="name">Description</label>
-      <input type="text" class="form-control" id="descriptif" required [(ngModel)]="exercice.descriptif" name="descriptif">
+      <input type="text" class="form-control" id="descriptif" required [(ngModel)]="activite.descriptif" name="descriptif">
     </div>
     <div class="form-group">
-        <label for="name">Année</label>
-        <input type="text" class="form-control" id="annee" required [(ngModel)]="exercice.annee" name="annee">
-      </div>
+      <label for="name">Responsable</label>
+      <input type="text" class="form-control" id="descriptif" required [(ngModel)]="activite.descriptif" name="descriptif">
+    </div>
       <div class="form-group">
         <label for="name">Date début</label>
-        <input type="text" class="form-control" id="datedebut" required [(ngModel)]="exercice.datedebut" name="datedebut">
+        <input type="text" class="form-control" id="datedebut" required [(ngModel)]="activite.datedebut" name="datedebut">
       </div>
       <div class="form-group">
         <label for="name">Date fin</label>
-        <input type="text" class="form-control" id="datefin" required [(ngModel)]="exercice.datefin" name="datefin">
+        <input type="text" class="form-control" id="datefin" required [(ngModel)]="activite.datefin" name="datefin">
       </div>
       <div class="form-group">
         <label for="name">Status</label>
-        <input type="text" class="form-control" id="status" required [(ngModel)]="exercice.status" name="status">
+        <input type="text" class="form-control" id="status" required [(ngModel)]="activite.status" name="status">
       </div>
     <button type="submit" class="btn btn-success">Submit</button>
-  <a routerLink="/exercices" class="float-right"><button class="btn btn-info text-white">Exercices List</button></a>
+  <a routerLink="/activites" class="float-right"><button class="btn btn-info text-white">Activites List</button></a>
 </form>
 </div>
 <div [hidden]="!submitted">

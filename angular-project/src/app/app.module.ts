@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { CreateActiviteComponent } from './create-activite/create-activite.component';
 import { UpdateActiviteComponent } from './update-activite/update-activite.component';
 import { ActiviteListComponent } from './activite-list/activite-list.component';
+import { LoginComponent } from './user/login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { ActiviteListComponent } from './activite-list/activite-list.component';
     UpdateExerciceComponent,
     CreateActiviteComponent,
     UpdateActiviteComponent,
-    ActiviteListComponent
+    ActiviteListComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { ActiviteListComponent } from './activite-list/activite-list.component';
     FormsModule
 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

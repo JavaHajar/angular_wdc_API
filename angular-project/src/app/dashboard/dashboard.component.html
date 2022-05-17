@@ -1,0 +1,70 @@
+
+<!-- <button class="btn btn-success" (click)="Logout()">Déconnexion</button> -->
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark"> 
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <a routerLink="exercices" class="nav-link" routerLinkActive="active">Exercices List</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/activites" class="nav-link" routerLinkActive="active">activites List</a>
+    </li>
+      <li class="nav-item">
+          <a routerLink="/add-exercice" class="nav-link" routerLinkActive="active" *ngIf='role==="responsable"'>Add Exercice</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/add-activite" class="nav-link" routerLinkActive="active">Add Activité</a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="add-activite" class="nav-link float-right" routerLinkActive="active">Déconnexion</a>
+    </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <br>
+    <h2 style="text-align: center;">Bienvenue Admin</h2>
+    <hr>  
+    <div class="card">
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Descriptif</th>
+                        <th scope="col">date début</th>
+                        <th scope="col">date fin</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">responsable</th>
+                        <th scope="col">Actions</th>
+                        <!-- <th scope="col">activites</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let activite of activites | async">
+                        <th >{{ activite.id}}</th>
+                        <td >{{ activite.titre}}</td> 
+                        <td >{{ activite.descriptif }}</td> 
+                        <td >{{ activite.datedebut }}</td>
+                        <td >{{ activite.datefin }}</td>
+                        <td >{{ activite.status }}</td>
+                        <td >{{ activite.responsables.nom }}</td>
+                        <td><button (click)="updateActivite(activite.id)" type="submit" class="btn btn-warning mr-2">Editer</button> -->
+                        <button (click)="deleteActivite(activite.id)" type="submit" class="btn btn-danger" style="margin-left: 10px">Supprimer</button> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div> 
+      <div class="card-body">
+    <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="mt-4">
+    </div>
+  </footer> 
+
+
